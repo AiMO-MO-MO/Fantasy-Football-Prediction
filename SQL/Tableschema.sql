@@ -1,0 +1,34 @@
+--DROP TABLE CompleteDataSetFinal;
+
+CREATE TABLE CompleteDataSetFinal(
+	Id INTEGER PRIMARY KEY,
+	Week REAL,
+	Name VARCHAR(50),
+	Position VARCHAR(5),
+	Year INTEGER,
+	Game VARCHAR(20),
+	FantasyPoints DOUBLE PRECISION,
+	PassingYards DOUBLE PRECISION,
+	PassingTDs DOUBLE PRECISION,
+	Ints INTEGER,
+	RushAttempts INTEGER,
+	RushYards INTEGER,
+	Fumbles INTEGER,
+	RushTDs INTEGER,
+	Receptions DOUBLE PRECISION,
+	ReceivingYards DOUBLE PRECISION,
+	ReceivingTDs DOUBLE PRECISION
+);
+
+-- DROP TABLE RASDF_data;
+
+CREATE TABLE RASDF_data(
+	Id INTEGER PRIMARY KEY,
+	Name VARCHAR(50),
+	Position VARCHAR(5),
+	Year INTEGER,
+	School VARCHAR(50),
+	RASScore DOUBLE PRECISION,
+	AllTimeScore DOUBLE PRECISION
+	
+);

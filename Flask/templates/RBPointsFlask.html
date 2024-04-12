@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      .popup-container {
+         display: none; /* Initially hidden */
+         position: fixed;
+         z-index: 1;
+         left: 0;
+         top: 0;
+         width: 100%;
+         height: 100%;
+         overflow: auto;
+         background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+     }
+
+     /* Popup content styles */
+     .popup-content {
+         background-color: #fefefe; /* White background */
+         margin: 15% auto; /* Center the popup vertically */
+         padding: 20px;
+         border: 1px solid #888; /* Gray border */
+         width: 80%; /* 80% of the width of the viewport */
+     }
+
+     /* Close button styles */
+     .close {
+         color: #aaa; /* Light gray color */
+         float: right; /* Align to the right */
+         font-size: 28px;
+         font-weight: bold;
+     }
+
+     .close:hover,
+     .close:focus {
+         color: black; /* Change color on hover or focus */
+         text-decoration: none;
+         cursor: pointer; /* Show pointer cursor on hover */
+     }
+
+     #chartContainer {
+         width: 40%;
+         float: left; /* Float the container to the left */
+     }
+
+     #panelContainer {
+         width: 50%; /* Adjust width as needed */
+         float: right; /* Float the container to the left */
+         top: 0%; /* Adjust this value as needed to move it farther down */
+         transform: translateY(0%); /* Only transform vertically */
+     }
+
+     #plotContainer {
+         height: 350px; /* Adjust height as needed */
+     }
+
+     .panel {
+ margin-bottom: 20px;
+ border-radius: 4px;
+ border: 1px solid transparent;
+ box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.panel-primary {
+ border-color: #337ab7;
+}
+
+.panel-heading {
+ padding: 10px 15px;
+ border-bottom: 1px solid transparent;
+ border-top-left-radius: 3px;
+ border-top-right-radius: 3px;
+ color: #fff;
+ background-color: #337ab7;
+ border-color: #337ab7;
+}
+
+.panel-title {
+ margin-top: 0;
+ margin-bottom: 0;
+ font-size: 16px;
+}
+
+.panel-body {
+ padding: 15px;
+}
+
+#visualization-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ </style>
+
+
+
+</head>
+<body>
+  <input type="text" id="searchInput" placeholder="Enter player name">
+  <button id="searchButton" onclick = 'search()'>Search</button>
+  <button id = 'home'>Home</button>
+  <div id="plot1" style = "height: 350px;"></div>
+  <div id="popupContainer" class="popup-container">
+      <!-- Popup content -->
+      <div class="popup-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <p>TRY AGAIN!!!!</p>
+      </div>
+    </div>
+    <div style="width: 50%;" id="chartContainer">
+      <!-- Create a canvas element for the chart -->
+      <canvas id="stackedBarChart"></canvas>
+  </div>
+
+  <div id="panelContainer">
+      <div class="panel panel-primary">
+          <div class="panel-heading">
+              <h3 class="panel-title">Last 5 Games</h3>
+          </div>
+          <div id="sample-metadata" class="panel-body"></div>
+      </div>
+  </div>
+
+    <script>document.getElementById('home').addEventListener('click', function(){
+    window.location.href ='/';});</script>
+    
+
+    <script src="{{ url_for('static', filename='../static/RBPointsFlask.js') }}"></script>
+
+      
+
+      
+    
+</body>
+</html>

@@ -1,0 +1,37 @@
+
+         .popup-container {
+            display: none; /* Initially hidden */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+        }
+
+        /* Popup content styles */
+        .popup-content {
+            background-color: #fefefe; /* White background */
+            margin: 15% auto; /* Center the popup vertically */
+            padding: 20px;
+            border: 1px solid #888; /* Gray border */
+            width: 80%; /* 80% of the width of the viewport */
+        }
+
+        /* Close button styles */
+        .close {
+            color: #aaa; /* Light gray color */
+            float: right; /* Align to the right */
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black; /* Change color on hover or focus */
+            text-decoration: none;
+            cursor: pointer; /* Show pointer cursor on hover */
+        }
+

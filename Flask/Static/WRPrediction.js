@@ -51,7 +51,7 @@ function searchAndPlot(data, searchText) {
 
         let layout = {
             title: {
-                text: `${keyFound} Data`,
+                text: `${keyFound} Fantasy Points By Year`,
                 font: {
                     size: 16
                 }
@@ -60,7 +60,7 @@ function searchAndPlot(data, searchText) {
                 title: 'Year'
             },
             yaxis: {
-                title: 'Values'
+                title: 'Fantasy Points'
             }
         };
 
@@ -104,7 +104,7 @@ function searchAndPlotSecondGraph(data, searchText) {
             y: values,
             type: 'bar',
             marker: {
-                color: ['green', 'green', 'green', 'green', 'green', 'purple'],
+                color: ['blue', 'blue', 'blue', 'blue', 'blue', 'red'],
                 line: {
                     color: 'black',
                     width: 1.5
@@ -118,7 +118,7 @@ function searchAndPlotSecondGraph(data, searchText) {
 
         let layout = {
             title: {
-                text: `${keyFound} Data (Second Graph)`,
+                text: `${keyFound} Fantasy Points By Year`,
                 font: {
                     size: 16
                 }
@@ -127,7 +127,7 @@ function searchAndPlotSecondGraph(data, searchText) {
                 title: 'Year'
             },
             yaxis: {
-                title: 'Values'
+                title: 'Fantasy Points'
             }
         };
 

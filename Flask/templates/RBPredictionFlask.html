@@ -105,7 +105,34 @@
     align-items: center;
 }
 
-    </style>
+.key {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: white;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .key-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+    .key-item span {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+        border-radius: 50%;
+    }
+    .predicted {
+        background-color: red;
+    }
+    .actual {
+        background-color: blue;
+    }
+    </style>    
    
 
 </head>
@@ -118,10 +145,14 @@
 
   
    
-    <input type="text" id="searchInput" placeholder="Enter player name">
+    <div>
+        <input type="text" id="searchInput" placeholder="Enter player name">
     <button id="searchButton" onclick = 'search()'>Search</button>
+    </div>
+    <div>
     <input type="text" id="searchInput2" placeholder="Enter player name for second graph">
-    <button id="searchButton2" onclick="searchSecondGraph()">Search Second Graph</button>
+    <button id="searchButton2" onclick="searchSecondGraph()">Search</button>
+    </div>
     <button id = 'home'>Home</button>
     <div id="plot3" style = "height: 550px;"></div>
     <div id="plot4" style = "height: 550px;"></div>
@@ -133,6 +164,15 @@
         </div>
       </div>
   
+      <div class="key">
+        <div class="key-item">
+            <span class="predicted"></span>
+            Predicted Points
+        </div>
+        <div class="key-item">
+            <span class="actual"></span>
+            Actual Points
+        </div>
 
 
     <script>document.getElementById('home').addEventListener('click', function(){

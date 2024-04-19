@@ -21,12 +21,25 @@ def rb_index():
 def wr_index():
     return render_template('WRPointsFlask.html')
 
+@app.route('/predictQB')#button to WR page
+def predict():
+    return render_template('QBPredictionFlask.html')
+
+@app.route('/predictRB')#button to WR page
+def predictRB():
+    return render_template('RBPredictionFlask.html')
+
+@app.route('/predictWR')#button to WR page
+def predictWR():
+    return render_template('WRPredictionFlask.html')
+
+
 @app.route('/QB5.json')#import QB last 5 games data 
 def get_QB5_data():
     return send_from_directory('static', 'QB5.json')
 
 @app.route('/QBPointData.json') #import QB weekly point data 
-def get_QBPointData():
+def get_QBPoints():
     return send_from_directory('static', 'QBPointData.json')
 
 @app.route('/QBYear.json') #import QB yearly data 
@@ -56,6 +69,19 @@ def get_WRPointData():
 @app.route('/WRYear.json')#import WR yearly data
 def get_WRYear_data():
     return send_from_directory('static', 'WRYear.json')
+
+
+@app.route('/QBYearlyPoints.json') #import QB weekly point data 
+def get_QBYearlyPoints():
+    return send_from_directory('static', 'QBYearlyPoints.json')
+
+@app.route('/RBYearlyPoints.json') #import QB weekly point data 
+def get_RBYearlyPoints():
+    return send_from_directory('static', 'RBYearlyPoints.json')
+
+@app.route('/WRYearlyPoints.json') #import QB weekly point data 
+def get_WRYearlyPoints():
+    return send_from_directory('static', 'WRYearlyPoints.json')
 
 
 

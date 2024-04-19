@@ -39,6 +39,15 @@
             padding: 5px 10px;
             font-size: 16px;
         }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+       
+            
     </style>
 </head>
 <body>
@@ -46,10 +55,16 @@
         <h1>Player Performance Dashboard</h1>
         <p>Explore player statistics and trends below.</p>
     </div>
-
-    <button id="button1">QB</button>
-    <button id="button2">RB</button>
-    <button id="button3">WR</button>
+    <div class="button-container">
+        <button id="button1">QB</button>
+        <button id="button2">RB</button>
+        <button id="button3">WR</button>
+    </div>
+    <div class="button-container">
+        <button id="button4">Prediction QB</button>
+        <button id="button5">Prediction RB</button>
+        <button id="button6">Prediction WR</button>
+    </div>
     <p style="text-align: center;">
         Image by <a href="https://www.freepik.com/free-vector/realistic-american-football-stadium_11733976.htm#query=american%20football%20field&position=0&from_view=keyword&track=ais&uuid=2e6983e7-c456-443a-8021-03bd72de6675" target="_blank" rel="noopener noreferrer">pikisuperstar</a> on Freepik
     </p>
@@ -65,6 +80,15 @@
 
         document.getElementById('button3').addEventListener('click', function(){
             window.location.href = '/WR';
+        });
+        document.getElementById('button4').addEventListener('click', function(){
+            window.location.href = '/predictQB';
+        });
+        document.getElementById('button5').addEventListener('click', function(){
+            window.location.href = '/predictRB';
+        });
+        document.getElementById('button6').addEventListener('click', function(){
+            window.location.href = '/predictWR';
         });
     </script>
 </body>

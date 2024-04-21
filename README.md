@@ -7,7 +7,7 @@
   * [Background](#Background)
   * [Questions](#Questions)
   * [Approach](#Approach)
-- [Player Performance Dashboard] (#dash)
+- [Player Performance Dashboard](#dash)
   * [Home Page](#retrieval)
   * [Player Page](#processing)
   * [Predictions](#db)

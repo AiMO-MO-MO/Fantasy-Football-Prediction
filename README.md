@@ -205,7 +205,10 @@ Inclusive of all available data points, even instances where players have scored
 
 Along with the ethics of data, the may be limitations for how predict the models are. The ARIMA model does not have an extensive time history which could impact results. Although the Linear Regression data was broken into years, this type of model does not factor into time into the model. This could lead with retired players having predictions.
 
-## <a name="db"></a> Data Source: [FootballDB](https://www.footballdb.com/fantasy-football/index.html?pos=RB&yr=2023&wk=%7Bx%7D&key=b6406b7aea3872d5bb677f064673c57f%27)
+## <a name="db"></a> Data Sources: 
+- [FootballDB](https://www.footballdb.com/fantasy-football/index.html?pos=RB&yr=2023&wk=%7Bx%7D&key=b6406b7aea3872d5bb677f064673c57f%27)
+- Fantasy Points: Fantasy CSV Data https://github.com/bendominguez0111/fantasy-csv-data?tab=readme-ov-file
+- NFL Combine Results: Kaggle NFL Combine Results https://www.kaggle.com/datasets/mitchellweg1/nfl-combine-results-dataset-2000-2022
 ## Image: Freepik Realistic american footbal stadium 
 https://www.freepik.com/free-vector/realistic-american-football-stadium_11733976.htm#query=american%20football%20field&position=0&from_view=keyword&track=ais&uuid=2e6983e7-c456-443a-8021-03bd72de6675
 

@@ -1,5 +1,5 @@
 let year = ['2019', '2020', '2021', '2022', '2023', '2024'];
-let url = '/WRYearlyPoints.json'; // Using fetch instead of d3.json
+let url = '/WRYearlyPoints.json'; 
 
 function search() {
     let searchInput = document.getElementById('searchInput');
@@ -13,7 +13,7 @@ function search() {
             return response.json();
         })
         .then(data => {
-            // Process the data here
+            
             console.log(data);
             searchAndPlot(data, searchText);
             
@@ -38,12 +38,12 @@ function searchAndPlot(data, searchText) {
                 color: ['blue', 'blue', 'blue', 'blue', 'blue', 'red'],
                 
                 line: {
-                        color: 'black', // Bar border color
-                        width: 1.5 // Bar border width
+                        color: 'black', 
+                        width: 1.5 
                     },
-                    // Show the values on the bars
+                   
                     text: values.map(String),
-                    textposition: 'auto'// Colors for each bar
+                    textposition: 'auto'
             }
         };
 
@@ -131,7 +131,7 @@ function searchAndPlotSecondGraph(data, searchText) {
             }
         };
 
-        Plotly.newPlot('plot4', plotData, layout); // Assuming plot4 is the div for the second graph
+        Plotly.newPlot('plot4', plotData, layout); 
     } else {
         console.log('No matching key found for the second graph');
         openPopup();

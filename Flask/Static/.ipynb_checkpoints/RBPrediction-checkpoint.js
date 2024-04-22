@@ -1,5 +1,5 @@
 let year = ['2019', '2020', '2021', '2022', '2023', '2024'];
-let url = '/QBYearlyPoints.json'; 
+let url = '/RBYearlyPoints.json'; // Using fetch instead of d3.json
 
 function search() {
     let searchInput = document.getElementById('searchInput');
@@ -13,7 +13,7 @@ function search() {
             return response.json();
         })
         .then(data => {
-            
+            // Process the data here
             console.log(data);
             searchAndPlot(data, searchText);
         })
@@ -82,7 +82,7 @@ function searchSecondGraph() {
             return response.json();
         })
         .then(data => {
-           
+            // Process the data here
             console.log(data);
             searchAndPlotSecondGraph(data, searchText);
         })
@@ -130,7 +130,7 @@ function searchAndPlotSecondGraph(data, searchText) {
             }
         };
 
-        Plotly.newPlot('plot4', plotData, layout); 
+        Plotly.newPlot('plot4', plotData, layout); // Assuming plot4 is the div for the second graph
     } else {
         console.log('No matching key found for the second graph');
         openPopup();

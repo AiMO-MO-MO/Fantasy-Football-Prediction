@@ -155,7 +155,8 @@ The Stats Prediction model predicts the following statistics for each position:
 ## <a name="dash"></a> Player Performance Dashboard:
 Run the app.py in the Flaskfolder to access the dashboard. 
 
-![image](https://github.com/AiMO-MO-MO/FantasyFootball-PPG/assets/130156500/5f394854-4c5a-4f82-b322-4c432e4fe845)
+![image](https://github.com/AiMO-MO-MO/Fantasy-Football-Prediction/assets/130156500/a93d1882-3a55-4019-80c5-2b4647ac2426)
+
 
 **Home Screen:**
 ![image](https://github.com/AiMO-MO-MO/Fantasy-Football-Prediction/assets/130156500/7355e8ab-e42e-4810-8260-73337d2853c0)

@@ -21,6 +21,11 @@
 ## <a name="OverviewProject"></a> Fantasy Football Prediction
 This repository is a continuation of multiple projects that are linked in the Related Projects section. This repo focuses on using machine learning techniques to predict the future performance of fantasy football players. There are two types of models, Points Prediction and Stats Prediction. The Stats Prediction model is an ARIMA model that produces position specific stats based on an players historical trends. The Points Prediction model uses statistics to predict fantasy points. These two models work together to create our Fantasy predictions, but each model could be used independently.
 
+**Group Members**
+- Avani Patel
+- Clarke Allan
+- Matt Owens
+- Banesa Casillas
 
 ### <a name="Fantasy"></a> Fantasy Overview
 

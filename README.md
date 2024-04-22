@@ -3,14 +3,10 @@
 
 
 ## Table of Contents
-- [Project Overview](#OverviewProject)   
-  * [Background](#Background)
-  * [Questions](#Questions)
-  * [Approach](#Approach)
-- [Player Performance Dashboard](#dash)
-  * [Home Page](#retrieval)
-  * [Player Page](#processing)
-  * [Predictions](#db)
+- [Fantasy Footbal](#OverviewProject)   
+  * [Fantasy Overview](#Fantasy)
+  * [Related Projects](#Related)
+
 - [Data Exploration](#DataExp)
   * [Data Retrieval](#retrieval)
   * [Data Processing](#processing)
@@ -20,6 +16,7 @@
 - [Machine Learning Models](#ML)
   * [Points Prediction](#PointsPrediction)
   * [ARIMA Model](#ARIMA)
+- [Player Performance Dashboard](#dash)
 - [Visualization](#visual)
 - [Ethics](#ethics)
 - [Technologies](#Technologies)
@@ -28,7 +25,26 @@
   * [Libraries](#processing)
   - [Data Sources](#Resources)
  
-## <a name="OverviewProject"></a> Fantasy Football
+## <a name="OverviewProject"></a> Fantasy Football Prediction
+
+
+
+### <a name="Fantasy"></a> Fantasy Overview
+
+Fantasy Football is a popular math-based game that engages 29 million participants each year. The standard league involves assembling a roster of real-life athletes whose on-field performances determine the scoring of your team. Competing head-to-head against league members, the goal is to compile the team with the most points to secure weekly victories. Win enough weeks and you make the playoffs. Win the Playoffs to become Champion!
+
+A Fantasy season begins on draft day, when teams take turns selecting players to fill out their roster. Drafting strategy is crucial as it lays the foundation for your season.
+
+![image](https://github.com/AiMO-MO-MO/Project-_FF/assets/130156500/4e46c4ce-04de-4256-8c28-52c78dd4570c)
+
+
+![image](https://github.com/AiMO-MO-MO/Project-_FF/assets/130156500/6da89ae8-59e2-47b4-b084-566f3587e3b3)
+
+Once teams are set, the real action begins. Teams face off against each other weekly, setting the lineup that they think will score the most points.
+
+![image](https://github.com/AiMO-MO-MO/Project-_FF/assets/130156500/b2f8edc9-8a4f-4e20-ad5d-cd43a37c4b30)
+
+### <a name="Related"></a>Related Projects
 With the actions taken on field reflected in the scores, Fantasy players spend endless time analyzing the available data to try and find an edge. This repository is a combination of analysis begining with an analysis of the Combine and Age trends
 
 https://github.com/AiMO-MO-MO/Project-_FF
@@ -38,19 +54,6 @@ An analysis of Week to Week scoring trends
 https://github.com/AiMO-MO-MO/FantasyFootball-PPG
 
 Using the data compliled and processed in the Week to Week analaysis, this project uses machine learning models to analyze past player performances to predict future fantasy points scored.
-
-## Background
-Fantasy Football is a popular math-based game that engages 29 million participants each year. The standard league involves assembling a roster of real-life athletes whose on-field performances determine the scoring of your team. Competing head-to-head against league members, the goal is to compile the team with the most points to secure weekly victories. Win enough weeks and you make the playoffs. Win the Playoffs to become Champion!
-
-A Fantasy season begins on draft day, when teams take turns selecting players to fill out their roster. Drafting strategy is crucial as it lays the foundation for your season.
-
-![image](https://github.com/AiMO-MO-MO/Project-_FF/assets/130156500/4e46c4ce-04de-4256-8c28-52c78dd4570c)
-![image](https://github.com/AiMO-MO-MO/Project-_FF/assets/130156500/6da89ae8-59e2-47b4-b084-566f3587e3b3)
-
-Once teams are set, the real action begins. Teams face off against each other weekly, setting the lineup that they think will score the most points.
-
-![image](https://github.com/AiMO-MO-MO/Project-_FF/assets/130156500/b2f8edc9-8a4f-4e20-ad5d-cd43a37c4b30)
-
 ## <a name="DataExp"></a> Data Exploration
 - Webscrape data from
   [FootballDB](https://www.footballdb.com/fantasy-football/index.html?pos=RB&yr=2023&wk=%7Bx%7D&key=b6406b7aea3872d5bb677f064673c57f%27)
@@ -81,10 +84,13 @@ Before the data could be fit for the models, we first needed to analyze the data
 
 ### Distribution of Fantasy Scoring:
 QB:
+
 ![image](https://github.com/AiMO-MO-MO/Fantasy-Football-Prediction/assets/130156500/cad82f3f-a235-4be6-a88f-c004f623968e)
 RB:
+
 ![image](https://github.com/AiMO-MO-MO/Fantasy-Football-Prediction/assets/130156500/c80f259c-9f0c-4ee1-86e0-7da0e992d264)
 WR:
+
 ![image](https://github.com/AiMO-MO-MO/Fantasy-Football-Prediction/assets/130156500/f8a48a15-6bcb-49c8-b2da-acee8952746b)
 
 
@@ -92,17 +98,33 @@ Not all the fields are applicable for each specific position, a WR or Running Ba
 
 ### Feature Heatmap:
 QB:
+
 ![image](https://github.com/AiMO-MO-MO/Fantasy-Football-Prediction/assets/130156500/0be5dc11-83d0-4c02-8266-1702805f9377)
+
 RB:
+
 ![image](https://github.com/AiMO-MO-MO/Fantasy-Football-Prediction/assets/130156500/6a072efc-e0cb-4efb-b337-d418cf36c1ce)
+
 WR:
+
 ![image](https://github.com/AiMO-MO-MO/Fantasy-Football-Prediction/assets/130156500/af82a288-26ed-44af-bd7e-442e019283d2)
+
+The most important features in relation to the Fantasy Points Scored are:
+
+QB: Passing TDs 0.88
+    Passing Yards 0.77
+RB: Rushing Yards 0.76
+    Rushing Attempts 0.71
+WR: Receiving Yards 0.97
+   
+
 
 ## <a name="ML"></a> Machine Learning Models
 ### <a name="PointsPrediction"></a> Points Prediction:
-With the data analzyed and features narrowed down, it is time to fit the data into the model. For the Points Prediction model, we will be using a Linear Regression Model. Linear regression is a statistical method used to model the relationship between a dependent variable (target) and one or more independent variables (features). It assumes a linear relationship between the independent variables and the dependent variable. The target for each model is Fantasy Points, while the features will be the position applicable fields. There are three models total: QB, RB, WR. The models are trained on the postition data from 2019 - 2021 and tested with the 2022 data. 
+With the data manipulated and features analyzed, it is time to fit the data into the model to predict the points. For the Points Prediction model, we will be using a Linear Regression Model. Linear regression is a statistical method used to model the relationship between a dependent variable (target) and one or more independent variables (features). It assumes a linear relationship between the independent variables and the dependent variable. The target for each model is Fantasy Points, while the features will be the position applicable fields. There are three total models: QB, RB, WR. The models are trained on the postition data from 2019 - 2021 and tested with the 2022 data. 
 
 ### <a name="ARIMA"></a> ARIMA Model:
+Now that we have our prediction model we need some data to predict on. We could predict off of last years data, but we wanted to get more individualized results. To get these results, we used an ARIMA model to 
 
 ## <a name="dash"></a> Player Performance Dashboard:
 Run the app.py in the Flaskfolder to access the dashboard. 
@@ -120,10 +142,12 @@ Player Display:
 - **Bottom Right** Displays the most recent 5 performances
 
 Player Predictor:
+
 ![image](https://github.com/AiMO-MO-MO/Fantasy-Football-Prediction/assets/130156500/4f406f5f-a319-415d-9fc4-b0ff71d662bb)
+
 - **Top Chart** Displays historical performance and future prediction for a player
 - **Bottom Chart** Displays historical performance and future prediction for second player
-- 
+
 ### How to use the Player Performance Dashboard via Flask App: 
 
 

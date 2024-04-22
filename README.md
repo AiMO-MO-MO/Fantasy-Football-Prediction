@@ -3,27 +3,20 @@
 
 
 ## Table of Contents
-- [Fantasy Footbal](#OverviewProject)   
+- [Fantasy Football](#OverviewProject)   
   * [Fantasy Overview](#Fantasy)
   * [Related Projects](#Related)
-
 - [Data Exploration](#DataExp)
-  * [Data Retrieval](#retrieval)
-  * [Data Processing](#processing)
-  * [Database Design](#db)
 - [Feature Analysis](#Analysis)
-  
 - [Machine Learning Models](#ML)
   * [Points Prediction](#PointsPrediction)
   * [ARIMA Model](#ARIMA)
 - [Player Performance Dashboard](#dash)
-- [Visualization](#visual)
-- [Ethics](#ethics)
-- [Technologies](#Technologies)
-  * [Data Sources](#db)
-  * [Technologies](#retrieval)
-  * [Libraries](#processing)
-  - [Data Sources](#Resources)
+- [Ethics](#Ethics)
+- [Data Sources](#db)
+- [Technologies](#Tech)
+- [Libraries](#Libraries)
+
  
 ## <a name="OverviewProject"></a> Fantasy Football Prediction
 
@@ -54,10 +47,13 @@ An analysis of Week to Week scoring trends
 https://github.com/AiMO-MO-MO/FantasyFootball-PPG
 
 Using the data compliled and processed in the Week to Week analaysis, this project uses machine learning models to analyze past player performances to predict future fantasy points scored.
+
 ## <a name="DataExp"></a> Data Exploration
 - Webscrape data from
   [FootballDB](https://www.footballdb.com/fantasy-football/index.html?pos=RB&yr=2023&wk=%7Bx%7D&key=b6406b7aea3872d5bb677f064673c57f%27)
+  
 - Transformed data into SQL database
+- 
   ![image](https://github.com/AiMO-MO-MO/Fantasy-Football-Prediction/assets/130156500/9d5bec3d-3b7e-4dd2-8471-3c0fc0d425df)
 
 
@@ -83,13 +79,15 @@ Receiving TDs
 Before the data could be fit for the models, we first needed to analyze the data itself and then the features available to the model.
 
 ### Distribution of Fantasy Scoring:
-QB:
+**QB:**
 
 ![image](https://github.com/AiMO-MO-MO/Fantasy-Football-Prediction/assets/130156500/cad82f3f-a235-4be6-a88f-c004f623968e)
-RB:
+
+**RB:**
 
 ![image](https://github.com/AiMO-MO-MO/Fantasy-Football-Prediction/assets/130156500/c80f259c-9f0c-4ee1-86e0-7da0e992d264)
-WR:
+
+**WR:**
 
 ![image](https://github.com/AiMO-MO-MO/Fantasy-Football-Prediction/assets/130156500/f8a48a15-6bcb-49c8-b2da-acee8952746b)
 
@@ -97,25 +95,26 @@ WR:
 Not all the fields are applicable for each specific position, a WR or Running Back would rarely have Passing Yards or Passing TDs, so we analyzed the feature importance per position. These following heatmaps helped narrow down the proper features to use for each positions model.
 
 ### Feature Heatmap:
-QB:
+**QB:**
 
 ![image](https://github.com/AiMO-MO-MO/Fantasy-Football-Prediction/assets/130156500/0be5dc11-83d0-4c02-8266-1702805f9377)
 
-RB:
+**RB:**
+
 
 ![image](https://github.com/AiMO-MO-MO/Fantasy-Football-Prediction/assets/130156500/6a072efc-e0cb-4efb-b337-d418cf36c1ce)
 
-WR:
+**WR:**
 
 ![image](https://github.com/AiMO-MO-MO/Fantasy-Football-Prediction/assets/130156500/af82a288-26ed-44af-bd7e-442e019283d2)
 
 The most important features in relation to the Fantasy Points Scored are:
 
-QB: Passing TDs 0.88
-    Passing Yards 0.77
-RB: Rushing Yards 0.76
-    Rushing Attempts 0.71
-WR: Receiving Yards 0.97
+- **QB:** Passing TDs 0.88  
+          Passing Yards 0.77
+- **RB:** Rushing Yards 0.76  
+          Rushing Attempts 0.71
+- **WR:** Receiving Yards 0.97  
    
 
 
@@ -123,8 +122,40 @@ WR: Receiving Yards 0.97
 ### <a name="PointsPrediction"></a> Points Prediction:
 With the data manipulated and features analyzed, it is time to fit the data into the model to predict the points. For the Points Prediction model, we will be using a Linear Regression Model. Linear regression is a statistical method used to model the relationship between a dependent variable (target) and one or more independent variables (features). It assumes a linear relationship between the independent variables and the dependent variable. The target for each model is Fantasy Points, while the features will be the position applicable fields. There are three total models: QB, RB, WR. The models are trained on the postition data from 2019 - 2021 and tested with the 2022 data. 
 
+### Optimization
+Even with strong correlated features, each model went through an optimization process. Removing and adding numerical and categorical features to improve the accuracy of the R-squared. Below is an example of the RB Model Optimization.
+
+**Attempt 1:** R-squared: 0.8989570503603337
+![image](https://github.com/AiMO-MO-MO/Fantasy-Football-Prediction/assets/130156500/0560c3b7-93d2-4c62-874a-94aba0ae176b)
+
+**Attempt 2:** R-squared: 0.8362649301745869
+![image](https://github.com/AiMO-MO-MO/Fantasy-Football-Prediction/assets/130156500/40813309-a392-4677-b7ea-226311718713)
+
+**Attempt 3:** R-squared: 0.7494400752647912
+![image](https://github.com/AiMO-MO-MO/Fantasy-Football-Prediction/assets/130156500/9fa3ed88-2680-465b-a5a4-6dbd7a1e4fec)
+
+**Attempt 4:** R-squared: 0.9183606405113434
+![image](https://github.com/AiMO-MO-MO/Fantasy-Football-Prediction/assets/130156500/ffa54d87-6269-4053-9590-1766b26736d8)
+
+
+### Model Scores
+- **QB:** Mean Squared Error: 871.45
+    R-squared: 0.93
+- **RB:** Mean Squared Error: 518.74
+    R-squared: 0.918
+- **WR:** Mean Squared Error: 253.39
+    R-squared: 0.98
+
+
 ### <a name="ARIMA"></a> ARIMA Model:
-Now that we have our prediction model we need some data to predict on. We could predict off of last years data, but we wanted to get more individualized results. To get these results, we used an ARIMA model to 
+Now that we have our prediction model we need data to use for predictions. We could predict off of last years data, but we wanted to get more individualized results. To get these results, we used an ARIMA model to predict what each player would score next season. Using the players historical data, the ARIMA model factors in the time component of our data. 
+
+- **QB:** Mean Squared Error: 871.45
+    R-squared: 0.93
+- **RB:** Mean Squared Error: 518.74
+    R-squared: 0.918
+- **WR:** Mean Squared Error: 253.39
+    R-squared: 0.98
 
 ## <a name="dash"></a> Player Performance Dashboard:
 Run the app.py in the Flaskfolder to access the dashboard. 
@@ -153,20 +184,36 @@ Player Predictor:
 
 To access the Player Performance Dashboard, navigate to the Flask app located in the Flask folder and run the app.py file.
 
-Navigating the Home Page:
+**Navigating the Home Page:**
 
 Once you've accessed the Flask app, you'll land on the Home Page. Choose the position you want to analyze.
 
-Player Page:
+**Player Page:**
 
 After selecting a position, you'll have the option to use the player search feature. This feature enables you to search for specific players and view their performance trends over time.
 At any point, you can return to the Home Page by clicking "Home"
 
-Prediction Page:
+**Prediction Page:**
+
 After selecting a position, you'll have the option to use the player search feature. This feature enables you to search for specific players and view their yearly perforance along with the final colum using the Position specific regression model for predictions. A second player can be compared by using the second search window.
 At any point, you can return to the Home Page by clicking "Home"
 
+## <a name="Ethics"></a>Ethics: 
+Fantasy football data is derived from NFL game statistics, rooted in real-world player performance. However, it's crucial to acknowledge the presence of selection bias within this dataset. While fantasy points are calculated based on standardized NFL game statistics, the interpretation and application of these numbers can vary across different fantasy football leagues. The dashboard's metrics are tailored to reflect a Points Per Reception (PPR) scoring style, offering insights aligned with this specific scoring system. It's important to recognize that users' league settings may differ, impacting the relevance and applicability of the visualization to their particular scoring rules.
+
+Furthermore, the dataset encompasses player performance data from the past five years, providing an overview of recent trends. It's worth noting that some players may have more extensive data histories than others, potentially influencing the depth of analysis for certain individuals.
+
+Inclusive of all available data points, even instances where players have scored zero points are included. However, the reasons behind these zero scores are not explicitly displayed within the dashboard. 
+
+## <a name="db"></a> Data Source: [FootballDB](https://www.footballdb.com/fantasy-football/index.html?pos=RB&yr=2023&wk=%7Bx%7D&key=b6406b7aea3872d5bb677f064673c57f%27)
+## Image: Freepik Realistic american footbal stadium 
+https://www.freepik.com/free-vector/realistic-american-football-stadium_11733976.htm#query=american%20football%20field&position=0&from_view=keyword&track=ais&uuid=2e6983e7-c456-443a-8021-03bd72de6675
+
 ## <a name="Libraries"></a> Libraries:
+- Scikit-Learn
+- Matplotlib
+- Numpy
+- Datetime
 - Flask
 - SQLAlchemy 
 - Pandas 
@@ -184,4 +231,4 @@ At any point, you can return to the Home Page by clicking "Home"
 - ChatGPT
 - JavaScript
 - CSS
--HTML
+- HTML

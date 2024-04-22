@@ -92,7 +92,7 @@ Before the data could be fit for the models, we first needed to analyze the data
 
 Not all the fields are applicable for each specific position, a Wide Reciever or Running Back would rarely have Passing Yards or Passing TDs. These following heatmaps narrowed down the featues to be used for each model.
 
-### Feature Heatmap:
+### Feature Heatmaps:
 **QB:**
 
 ![image](https://github.com/AiMO-MO-MO/Fantasy-Football-Prediction/assets/130156500/0be5dc11-83d0-4c02-8266-1702805f9377)
